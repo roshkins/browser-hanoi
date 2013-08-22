@@ -1,0 +1,35 @@
+.tower {
+	display: inline-block;
+	padding: 10px;
+	margin-left:auto;
+	text-align: center;
+
+}
+
+.disk {
+	margin: 2px;
+	height: 20px;
+	background-color: green;
+	position: relative;
+  margin-left: auto;
+	margin-right: auto;
+  position: relative;
+   left: 0; right: 0;
+
+
+}
+
+#disk1 {
+	width: 33px;
+
+}
+
+#disk2 {
+	width: 66px;
+
+}
+
+#disk3 {
+	width: 99px;
+
+}
