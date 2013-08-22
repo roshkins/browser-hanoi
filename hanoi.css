@@ -1,3 +1,10 @@
+.towers {
+   position: absolute;
+   top:50%;
+   left:50%;
+   margin:-150px 0 0 -150px;
+}
+
 .tower {
 	display: inline-block;
 	padding: 10px;
@@ -14,22 +21,24 @@
   margin-left: auto;
 	margin-right: auto;
   position: relative;
-   left: 0; right: 0;
-
-
+  left: 0; right: 0;
 }
 
 #disk1 {
 	width: 33px;
-
 }
 
 #disk2 {
 	width: 66px;
-
 }
 
 #disk3 {
 	width: 99px;
+}
 
+.won {
+	position: absolute;
+	text-align: center;
+	color: red;
+	font-size: 20em;
 }

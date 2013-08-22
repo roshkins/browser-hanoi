@@ -8,7 +8,10 @@ var HanoiUI = (function (HanoiUI) {
 	Game.prototype.start = function () {
 		this.createTowers();
 		this.renderTowers();
-		// this.setClickListener();
+		this.setClickListener();
+	};
+
+	Game.prototype.setClickListener = function() {
 		var that = this;
 
 		$('.tower').on('click', function () {
@@ -21,12 +24,17 @@ var HanoiUI = (function (HanoiUI) {
 				that.move(that.fromClick, toClick);
 				that.fromClick = null;
 				that.renderTowers();
+				that.messageIfWon();
 			}
-
 		});
+	}
 
-	};
-
+	Game.prototype.messageIfWon = function () {
+		if (Hanoi.won()) {
+			$("body").append($('<div class="won">You won!!!</div>'));
+			$(".tower").off("click");
+		}
+	}
 
 
 	Game.prototype.createTowers = function () {
@@ -37,7 +45,7 @@ var HanoiUI = (function (HanoiUI) {
 		}
 
 		$.each($('.tower'), function(idx, elm) {
-			$(elm).append($('<p>I\'m Tower '+ (idx + 1) + '</p>'));
+			$(elm).append($('<p>TOWER '+ (idx + 1) + '</p>'));
 		});
 	}
 
@@ -53,8 +61,8 @@ var HanoiUI = (function (HanoiUI) {
 		var tower = Hanoi["tower" + i];
 		var towerDiv = $("#tower" + i);
 		towerDiv.children('.disk').remove();
-		for (var j = tower.length - 1; j > -1; j--) {
-			towerDiv.append($('<div class="disk" id="disk' + tower[j] + '"></div>'));
+		for (var j = 0; j < tower.length; j++) {
+			towerDiv.prepend($('<div class="disk" id="disk' + tower[j] + '"></div>'));
 		}
 	}
 
